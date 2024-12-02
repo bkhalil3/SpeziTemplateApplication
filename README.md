@@ -27,7 +27,7 @@ This fork of the Spezi Template Application introduces the following enhancement
 ### **1. Health Data Check Task**
 - A new task called `Health Data Check` has been added to the Scheduler.  
 - **Purpose:** Encourages users to review their daily health metrics via the Health Dashboard.  
-- **Integration:** Linked to the Health Dashboard for actionable insights, using Spezi's modular framework.  
+- **Integration:** Linked to the Health Dashboard for helpful insights, using Spezi's modular framework.  
 - **Completion Tracking:** Task completion is persistently stored using `UserDefaults`, ensuring that task states are saved across sessions.
 
 ### **2. Interactive Task Flow**
