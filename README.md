@@ -50,25 +50,6 @@ This fork of the Spezi Template Application introduces the following enhancement
 
 ---
 
-## Application Content
-
-The following screenshots showcase the application's core features, including newly added enhancements.
-
-|![Welcome View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome.png#gh-light-mode-only) ![Welcome View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome~dark.png#gh-dark-mode-only)|![Health Dashboard View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/HealthDashboard.png)|![Completed Task View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/TaskCompleted.png)|
-|:--:|:--:|:--:|
-|Welcome Screen|Health Dashboard|Task Completed Confirmation|
-
-|![Schedule UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule.png#gh-light-mode-only) ![Schedule UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule~dark.png#gh-dark-mode-only)|![HealthKit Permissions](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet.png#gh-light-mode-only) ![HealthKit Permissions](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet~dark.png#gh-dark-mode-only)|![Questionnaire Screen](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire.png#gh-light-mode-only) ![Questionnaire Screen](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire~dark.png#gh-dark-mode-only)|
-|:--:|:--:|:--:|
-|Schedule Tasks|HealthKit Permissions|Complete Questionnaires|
-
-> **Note**  
-> You can find all the used Spezi Modules in the [Stanford Spezi GitHub Organization](https://github.com/StanfordSpezi).
-
-The [DocC documentation of the Spezi Template Application contains information on how to use the application as the basis for your Spezi-based application, run the application, and modify the application](https://stanfordspezi.github.io/SpeziTemplateApplication).
-
----
-
 ## Contributing
 
 Contributions to this project are welcome. Please make sure to read the [contribution guidelines](https://github.com/StanfordSpezi/.github/blob/main/CONTRIBUTING.md) and the [contributor covenant code of conduct](https://github.com/StanfordSpezi/.github/blob/main/CODE_OF_CONDUCT.md) first.
