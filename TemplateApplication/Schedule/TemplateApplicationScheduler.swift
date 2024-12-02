@@ -1,11 +1,3 @@
-//
-// This source file is part of the Stanford Spezi Template Application open-source project
-//
-// SPDX-FileCopyrightText: 2023 Stanford University
-//
-// SPDX-License-Identifier: MIT
-//
-
 import Foundation
 import Spezi
 import SpeziScheduler
@@ -20,33 +12,39 @@ final class TemplateApplicationScheduler: Module, DefaultInitializable, Environm
 
     @MainActor var viewState: ViewState = .idle
 
-    init() {}
-    
-    /// Add or update the current list of task upon app startup.
+    init() {
+        print("TemplateApplicationScheduler initialized.")
+    }
+
     func configure() {
+        guard let scheduler = self.scheduler as? Scheduler else {
+            let defaultError = NSError(
+                domain: "SchedulerError",
+                code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Scheduler dependency not available."]
+            )
+            viewState = .error(AnyLocalizedError(error: defaultError, defaultErrorDescription: "Scheduler dependency not available."))
+            return
+        }
+        
         do {
             try scheduler.createOrUpdateTask(
-                id: "social-support-questionnaire",
-                title: "Social Support Questionnaire",
-                instructions: "Please fill out the Social Support Questionnaire every day.",
-                category: .questionnaire,
-                schedule: .daily(hour: 8, minute: 0, startingAt: .today)
-            ) { context in
-                context.questionnaire = Bundle.main.questionnaire(withName: "SocialSupportQuestionnaire")
-            }
+                id: "health-data-check",
+                title: "Health Data Check",
+                instructions: "Review your Health Dashboard to track your progress for the day.",
+                category: .questionnaire, // Use an appropriate category
+                schedule: .daily(hour: 18, minute: 0, startingAt: .today)
+            )
         } catch {
             viewState = .error(AnyLocalizedError(error: error, defaultErrorDescription: "Failed to create or update scheduled tasks."))
         }
     }
 }
 
-
 extension Task.Context {
     @Property(coding: .json) var questionnaire: Questionnaire?
 }
 
-
 extension Outcome {
-    // periphery:ignore - demonstration of how to store additional context within an outcome
     @Property(coding: .json) var questionnaireResponse: QuestionnaireResponse?
 }
