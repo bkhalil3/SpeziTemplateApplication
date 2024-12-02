@@ -22,7 +22,7 @@ It demonstrates using the [Spezi](https://github.com/StanfordSpezi/Spezi) ecosys
 
 ## Enhancements and Features Added
 
-This fork of the Spezi Template Application introduces the following key enhancements:
+This fork of the Spezi Template Application introduces the following enhancements:
 
 ### **1. Health Data Check Task**
 - A new task called `Health Data Check` has been added to the Scheduler.  
