@@ -1,11 +1,9 @@
 <!--
-
 This source file is part of the Stanford Spezi Template Application open-source project
 
 SPDX-FileCopyrightText: 2023 Stanford University
 
 SPDX-License-Identifier: MIT
-
 -->
 
 # Spezi Template Application
@@ -14,37 +12,62 @@ SPDX-License-Identifier: MIT
 [![codecov](https://codecov.io/gh/StanfordSpezi/SpeziTemplateApplication/branch/main/graph/badge.svg?token=9fvSAiFJUY)](https://codecov.io/gh/StanfordSpezi/SpeziTemplateApplication)
 [![DOI](https://zenodo.org/badge/589846478.svg)](https://zenodo.org/badge/latestdoi/589846478)
 
-This repository contains the Spezi Template Application.
+This repository contains the Spezi Template Application.  
 It demonstrates using the [Spezi](https://github.com/StanfordSpezi/Spezi) ecosystem and builds on top of the [Stanford Biodesign Digital Health Template Application](https://github.com/StanfordBDHG/TemplateApplication).
 
-> [!NOTE] 
+> **Note**  
 > Do you want to try out the Spezi Template Application? You can download it to your iOS device using [TestFlight](https://testflight.apple.com/join/ipEezBY1)!
 
+---
+
+## Enhancements and Features Added
+
+This fork of the Spezi Template Application introduces the following key enhancements:
+
+### **1. Health Data Check Task**
+- A new task called `Health Data Check` has been added to the Scheduler.  
+- **Purpose:** Encourages users to review their daily health metrics via the Health Dashboard.  
+- **Integration:** Linked to the Health Dashboard for actionable insights, using Spezi's modular framework.  
+- **Completion Tracking:** Task completion is persistently stored using `UserDefaults`, ensuring that task states are saved across sessions.
+
+### **2. Interactive Task Flow**
+- A redesigned **`EventView`** tracks task completion, providing clear feedback with a green checkmark and a "Task Completed" confirmation screen.  
+- Tasks like `Health Data Check` dynamically navigate users to the **Health Dashboard** for interaction, returning to the completion screen afterward.
+
+### **3. Enhanced Health Dashboard**
+- The Health Dashboard displays **real-time metrics** such as:
+  - Step count
+  - Heart rate
+  - Sleep hours
+- Features include:
+  - **Dynamic Visualization:** Charts for trends like step activity and sleep analysis.
+  - **Manual Updates:** Users can manually adjust metrics with intuitive controls.
+  - **Report Sharing:** Generates a detailed PDF health report for sharing.
+
+### **4. State Persistence**
+- Task completion states are managed using `UserDefaults`.  
+- Ensures a consistent user experience by displaying the correct task status upon reopening the app.
+
+---
 
 ## Application Content
 
-The following screenshots show a wide variety of features based on Spezi Modules that are part of the Spezi Template Application.
+The following screenshots showcase the application's core features, including newly added enhancements.
 
-|![A screen displaying welcome information.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome.png#gh-light-mode-only) ![A screen displaying welcome information.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome~dark.png#gh-dark-mode-only)|![A screen showing an overview of the modules used in the Spezi Template Application.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/InterestingModules.png#gh-light-mode-only) ![A screen showing an overview of the modules used in the Spezi Template Application.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/InterestingModules~dark.png#gh-dark-mode-only)|![A screen displaying the consent view.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Consent.png#gh-light-mode-only) ![A screen displaying the consent view.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Consent~dark.png#gh-dark-mode-only)
+|![Welcome View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome.png#gh-light-mode-only) ![Welcome View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/Welcome~dark.png#gh-dark-mode-only)|![Health Dashboard View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/HealthDashboard.png)|![Completed Task View](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/TaskCompleted.png)|
 |:--:|:--:|:--:|
-|Welcome View|Interesting Modules|Consent Signature|
+|Welcome Screen|Health Dashboard|Task Completed Confirmation|
 
-|![HealthKit Onboarding Flow](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitAccess.png#gh-light-mode-only) ![HealthKit Onboarding Flow](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitAccess~dark.png#gh-dark-mode-only)|![Permissions screen of the HealthKit framework](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet.png#gh-light-mode-only) ![Permissions screen of the HealthKit framework](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet~dark.png#gh-dark-mode-only)|![Onboarding screen showing the Notifications permission screen.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Notifications.png#gh-light-mode-only) ![Onboarding screen showing the Notifications permission screen.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Notifications~dark.png#gh-dark-mode-only)|
+|![Schedule UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule.png#gh-light-mode-only) ![Schedule UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule~dark.png#gh-dark-mode-only)|![HealthKit Permissions](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet.png#gh-light-mode-only) ![HealthKit Permissions](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Onboarding/HealthKitSheet~dark.png#gh-dark-mode-only)|![Questionnaire Screen](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire.png#gh-light-mode-only) ![Questionnaire Screen](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire~dark.png#gh-dark-mode-only)|
 |:--:|:--:|:--:|
-|HealthKit Access|Granular HealthKit Share Control|Trigger Local Notifications|
+|Schedule Tasks|HealthKit Permissions|Complete Questionnaires|
 
-|![A screen displaying the Scheduler UI.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule.png#gh-light-mode-only) ![A screen displaying the Scheduler UI.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Schedule~dark.png#gh-dark-mode-only)|![A screen showing a questionnaire using ResearchKit.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire.png#gh-light-mode-only) ![A screen showing a questionnaire using ResearchKit.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/Questionnaire~dark.png#gh-dark-mode-only)|![The scheduler screen showing the completed UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/ScheduleComplete.png#gh-light-mode-only) ![The scheduler screen showing the completed UI](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Schedule/ScheduleComplete~dark.png#gh-dark-mode-only)|
-|:--:|:--:|:--:|
-|Schedule Tasks|Display Questionnaires|Keep Track of Tasks|
-
-|![A screen displaying the Contact UI.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Context/Contacts.png#gh-light-mode-only) ![A screen displaying the Contact UI.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Context/Contacts~dark.png#gh-dark-mode-only)|![A screen displaying the current user account information.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Account/Account.png#gh-light-mode-only) ![A screen displaying the current user account information.](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Account/Account~dark.png#gh-dark-mode-only)|![License information to list all used Swift Packages](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Context/License.png#gh-light-mode-only) ![License information to list all used Swift Packages](TemplateApplication/Supporting%20Files/TemplateApplication.docc/Resources/Context/License~dark.png#gh-dark-mode-only)|
-|:--:|:--:|:--:|
-|Contact Information|Account Overview|License Information|
-
-> [!NOTE] 
+> **Note**  
 > You can find all the used Spezi Modules in the [Stanford Spezi GitHub Organization](https://github.com/StanfordSpezi).
 
 The [DocC documentation of the Spezi Template Application contains information on how to use the application as the basis for your Spezi-based application, run the application, and modify the application](https://stanfordspezi.github.io/SpeziTemplateApplication).
+
+---
 
 ## Contributing
 
@@ -52,6 +75,7 @@ Contributions to this project are welcome. Please make sure to read the [contrib
 
 This project is based on [ContinuousDelivery Example by Paul Schmiedmayer](https://github.com/PSchmiedmayer/ContinousDelivery) and the [Stanford Biodesign Digital Health Template Application](https://github.com/StanfordBDHG/TemplateApplication) provided using the MIT license.
 
+---
 
 ## License
 
