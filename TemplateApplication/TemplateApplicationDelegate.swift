@@ -22,8 +22,10 @@ import SwiftUI
 
 
 class TemplateApplicationDelegate: SpeziAppDelegate {
+    @MainActor
     override var configuration: Configuration {
         Configuration(standard: TemplateApplicationStandard()) {
+            // Firebase Configurations
             if !FeatureFlags.disableFirebase {
                 AccountConfiguration(
                     service: FirebaseAccountService(providers: [.emailAndPassword, .signInWithApple], emulatorSettings: accountEmulator),
@@ -31,8 +33,6 @@ class TemplateApplicationDelegate: SpeziAppDelegate {
                     configuration: [
                         .requires(\.userId),
                         .requires(\.name),
-
-                        // additional values stored using the `FirestoreAccountStorage` within our Standard implementation
                         .collects(\.genderIdentity),
                         .collects(\.dateOfBirth)
                     ]
@@ -46,18 +46,20 @@ class TemplateApplicationDelegate: SpeziAppDelegate {
                 }
             }
 
+            // HealthKit Integration
             if HKHealthStore.isHealthDataAvailable() {
                 healthKit
             }
-            
-            TemplateApplicationScheduler()
-            Scheduler()
-            OnboardingDataSource()
 
+            // Dependencies
+            Scheduler()
+            TemplateApplicationScheduler()
+            OnboardingDataSource()
             Notifications()
         }
     }
 
+    // Helper properties for Firebase and HealthKit
     private var accountEmulator: (host: String, port: Int)? {
         if FeatureFlags.useFirebaseEmulator {
             (host: "localhost", port: 9099)
@@ -66,7 +68,6 @@ class TemplateApplicationDelegate: SpeziAppDelegate {
         }
     }
 
-    
     private var firestore: Firestore {
         let settings = FirestoreSettings()
         if FeatureFlags.useFirebaseEmulator {
@@ -74,13 +75,9 @@ class TemplateApplicationDelegate: SpeziAppDelegate {
             settings.cacheSettings = MemoryCacheSettings()
             settings.isSSLEnabled = false
         }
-        
-        return Firestore(
-            settings: settings
-        )
+        return Firestore(settings: settings)
     }
-    
-    
+
     private var healthKit: HealthKit {
         HealthKit {
             CollectSample(
@@ -90,3 +87,7 @@ class TemplateApplicationDelegate: SpeziAppDelegate {
         }
     }
 }
+
+
+
+
